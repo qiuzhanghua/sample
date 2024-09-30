@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.21)
 project(sample VERSION 1.0.0 LANGUAGES CXX)
 
-add_library(sample SHARED)
+add_library(${PROJECT_NAME})
+add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
 target_sources(sample PRIVATE src/sample.cpp)
 
