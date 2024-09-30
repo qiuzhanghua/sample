@@ -8,10 +8,9 @@ target_sources(sample PRIVATE src/sample.cpp)
 target_compile_features(sample PUBLIC cxx_std_17)
 
 target_include_directories(
-  sample # The target library
-  PRIVATE src/sample # This will make the include directory available to the library itself
-  PUBLIC include  # This will make the include directory available to the users of the library
-)
+  ${PROJECT_NAME}
+  INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+            $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
 set_target_properties(sample PROPERTIES
   VERSION ${PROJECT_VERSION}

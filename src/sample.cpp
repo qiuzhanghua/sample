@@ -1,5 +1,5 @@
 #include <iostream>
-#include "include/sample.h"
+#include "include/sample/sample.h"
 
 void say_hello()
 {
